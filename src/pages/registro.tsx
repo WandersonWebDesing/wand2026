@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import '../css/registro.css';
 
 export default function Register() {

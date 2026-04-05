@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { ShoppingCart, Layout, Rocket, ArrowRight } from 'lucide-react';
 import '../css/cardprodutos.css';
 

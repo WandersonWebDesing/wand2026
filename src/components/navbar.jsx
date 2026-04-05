@@ -1,6 +1,6 @@
 // src/pages/Menu.jsx
 import { useNavigate, Link } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+
 import { ShoppingCart, Menu as MenuIcon, Search } from "lucide-react";
 import "../css/navbar.css";
 import WhatsAppIcon from '../assets/images/botao-whatsapp.gif';

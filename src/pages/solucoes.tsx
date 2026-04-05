@@ -1,7 +1,7 @@
 // =========================
 // solucoes.jsx
 // =========================
-import React, { useState } from "react";
+
 import "../css/solucoes.css";
 import { motion } from "framer-motion";
 import logo from "../assets/images/logowanderson.png"; // ajuste para o caminho correto da sua logo

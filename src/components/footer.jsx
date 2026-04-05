@@ -1,5 +1,4 @@
-// src/components/footer.jsx
-import { useState, useEffect } from "react";
+
 import { motion } from "framer-motion";
 import "../css/footer.css";
 

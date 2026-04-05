@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+
 import "../css/depoimento.css";
 import { motion } from "framer-motion";
 import { createClient } from "@supabase/supabase-js";

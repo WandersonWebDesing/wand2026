@@ -1,5 +1,3 @@
-// Importação do React e hooks necessários
-import React, { useState } from "react";
 
 // Importação do CSS
 import "../css/button.css";

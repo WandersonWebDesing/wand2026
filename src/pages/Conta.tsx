@@ -1,5 +1,5 @@
 // Conta.jsx
-import React from "react";
+
 import "../css/conta.css";
 
 export default function Conta() {

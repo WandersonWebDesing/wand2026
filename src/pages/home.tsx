@@ -1,4 +1,4 @@
-import React from "react";
+
 import "../css/home.css";
 import minhaFoto from "../assets/images/wandersonhome.png";
 

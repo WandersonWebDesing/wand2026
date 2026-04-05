@@ -1,4 +1,3 @@
-import React from 'react';
 import { Mail, Lock, ArrowRight, Github, Linkedin, Briefcase } from 'lucide-react';
 import '../css/login.css';
 

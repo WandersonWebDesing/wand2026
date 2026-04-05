@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+
 import "../css/carrinho.css";
 
 const Carrinho = () => {
