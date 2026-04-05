@@ -1,0 +1,235 @@
+/* src/css/footer.css */
+
+/* 1. RESET E ESTILOS GERAIS (Garantindo 100% de largura) */
+.footer {
+  width: 100vw; /* Ocupa 100% da largura da tela */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  
+  background: #0b1f3a;
+  color: #fff;
+  padding: 80px 40px 30px 40px;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  overflow: hidden;
+  
+  /* Efeito de sobreposição (profundidade) */
+  box-shadow: 0px -10px 30px rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer.dark {
+  background: #070d1e;
+}
+
+/* CONTAINER CENTRALIZADO */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-left, .footer-center, .footer-right {
+  flex: 1 1 300px;
+}
+
+/* 2. LADO ESQUERDO (Com fundo elegante na imagem) */
+.footer-left .footer-hero {
+  width: 130px;
+  margin-bottom: 25px;
+  border-radius: 16px;
+  display: block;
+  
+  /* Fundo elegante e brilhoso sob a imagem */
+  background: linear-gradient(135deg, rgba(0, 210, 255, 0.2), rgba(255, 152, 0, 0.1));
+  padding: 10px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 8px 32px 0 rgba(0, 210, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: transform 0.3s ease;
+}
+
+.footer-left .footer-hero:hover {
+  transform: translateY(-5px);
+}
+
+.footer-left h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #00d2ff;
+  font-weight: 700;
+}
+
+.footer-left p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #cfd8dc;
+}
+
+/* IMAGEM GIRATÓRIA (Hover no Desktop) */
+.imagem-container {
+  margin-top: 20px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.imagem-gira {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Gira ao passar o mouse no Desktop */
+@media (min-width: 901px) {
+  .imagem-container:hover .imagem-gira {
+    transform: rotate(360deg);
+  }
+}
+
+/* Gira ao clicar (conforme sua lógica JS) */
+.imagem-gira.rotate {
+  transform: rotate(360deg);
+}
+
+/* 3. LADO CENTRAL (Contador) */
+.footer-center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-center h3 {
+  margin-bottom: 15px;
+  color: #ff9800;
+  font-size: 1.4rem;
+}
+
+.counter {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #00ffcc;
+  text-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 255, 204, 0.2);
+}
+
+/* 4. LADO DIREITO (Formulário) */
+.footer-right h3 {
+  margin-bottom: 10px;
+  color: #ff5722;
+  font-size: 1.4rem;
+}
+
+.footer-right p {
+  margin-bottom: 20px;
+  color: #cfd8dc;
+}
+
+.footer-right form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-right input[type="email"] {
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.footer-right input[type="email"]:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #00d2ff;
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+}
+
+.cta-button {
+  padding: 14px;
+  background: linear-gradient(90deg, #ff5722, #ff9800);
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 87, 34, 0.5);
+  filter: brightness(1.1);
+}
+
+/* RODAPÉ FINAL */
+.footer-bottom {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: #90a4ae;
+  font-size: 0.9rem;
+}
+
+---
+
+/* 5. MOBILE (Efeito Quente e Brilhoso 🔥) */
+@media (max-width: 768px) {
+  .footer {
+    /* Gradiente quente e escuro elegante */
+    background: linear-gradient(180deg, #120a07 0%, #2c0e05 50%, #4a1204 100%);
+    padding: 60px 20px 30px 20px;
+  }
+
+  .footer.dark {
+    background: linear-gradient(180deg, #0a0402 0%, #1c0601 100%);
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+  }
+
+  /* Brilhos intensificados no Mobile */
+  .footer-left h2 {
+    color: #ffaa00;
+    text-shadow: 0 0 12px rgba(255, 170, 0, 0.4);
+  }
+
+  .counter {
+    color: #ff3366;
+    border-color: rgba(255, 51, 102, 0.3);
+    text-shadow: 0 0 15px rgba(255, 51, 102, 0.6);
+    background: rgba(255, 51, 102, 0.05);
+  }
+
+  .footer-right h3 {
+    color: #ffdd00;
+    text-shadow: 0 0 10px rgba(255, 221, 0, 0.3);
+  }
+
+  .footer-left .footer-hero {
+    margin: 0 auto 20px auto;
+    box-shadow: 0 8px 32px 0 rgba(255, 87, 34, 0.4);
+    border-color: rgba(255, 87, 34, 0.3);
+  }
+}

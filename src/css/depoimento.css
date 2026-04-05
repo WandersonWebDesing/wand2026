@@ -1,0 +1,217 @@
+:root {
+  --cor-primaria: #00f2fe;
+  --cor-secundaria: #4facfe;
+  --cor-fundo: #0a0f1d;
+  --cor-card: #131a2c;
+  --texto-principal: #ffffff;
+  --texto-secundario: #8b9bb4;
+  --borda: rgba(255, 255, 255, 0.05);
+}
+
+.depoimentos-container {
+  background-color: var(--cor-fundo);
+  color: var(--texto-principal);
+  padding: 80px 20px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.depoimentos-header {
+  text-align: center;
+  max-width: 700px;
+  margin-bottom: 50px;
+}
+
+.badge-superior {
+  background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
+  color: var(--cor-primaria);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid rgba(0, 242, 254, 0.2);
+}
+
+.depoimentos-header h2 {
+  font-size: 2.5rem;
+  margin: 20px 0;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.text-gradiente {
+  background: linear-gradient(135deg, var(--cor-secundaria), var(--cor-primaria));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.depoimentos-header p {
+  color: var(--texto-secundario);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Grid de Cards */
+.depoimentos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.card-depoimento {
+  background-color: var(--cor-card);
+  border: 1px solid var(--borda);
+  border-radius: 16px;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-depoimento:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 242, 254, 0.1);
+  border-color: rgba(0, 242, 254, 0.2);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tag-tipo {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  background: rgba(0, 242, 254, 0.05);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.aspas {
+  font-size: 4rem;
+  font-family: 'Georgia', serif;
+  color: rgba(79, 172, 254, 0.15);
+  line-height: 0.5;
+}
+
+.depoimento-texto {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 25px;
+}
+
+.divisor {
+  border: 0;
+  height: 1px;
+  background: var(--borda);
+  margin-bottom: 20px;
+}
+
+.autor-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar-fake {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, var(--cor-secundaria), var(--cor-primaria));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #0a0f1d;
+  font-size: 1.2rem;
+}
+
+.autor-nome {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.autor-cargo {
+  font-size: 0.85rem;
+  color: var(--texto-secundario);
+}
+
+/* CTA Section */
+.cta-section {
+  text-align: center;
+  border-top: 1px solid var(--borda);
+  padding-top: 40px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.cta-texto {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.cta-botoes {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-principal {
+  background: linear-gradient(135deg, var(--cor-secundaria), var(--cor-primaria));
+  color: #0a0f1d;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: opacity 0.2s ease;
+}
+
+.btn-secundario {
+  background: transparent;
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background 0.2s ease;
+}
+
+.btn-principal:hover, .btn-secundario:hover {
+  opacity: 0.9;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-principal:hover {
+  box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .depoimentos-header h2 {
+    font-size: 2rem;
+  }
+  .cta-botoes {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

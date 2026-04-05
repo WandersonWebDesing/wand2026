@@ -1,0 +1,202 @@
+:root {
+  --cor-primaria: #00ff87; /* Tom de verde/neon que remete à conversão e tecnologia */
+  --cor-secundaria: #60efff;
+  --bg-escuro: #0b0f19;
+  --bg-card: #151c2e;
+  --texto-claro: #f8fafc;
+  --texto-cinza: #94a3b8;
+  --gradiente: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+}
+
+.loja-container {
+  background-color: var(--bg-escuro);
+  color: var(--texto-claro);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.loja-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.tag-premium {
+  background: rgba(0, 255, 135, 0.1);
+  color: var(--cor-primaria);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.loja-header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 20px 0;
+  background: var(--gradiente);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.loja-header p {
+  font-size: 1.2rem;
+  color: var(--texto-cinza);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Grid de Serviços */
+.servicos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 80px;
+}
+
+.card-servico {
+  background-color: var(--bg-card);
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-servico:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 255, 135, 0.05);
+}
+
+.card-servico.principal {
+  border: 2px solid;
+  border-image: var(--gradiente) 1;
+  /* Dica: se preferir bordas arredondadas com gradiente, use background-clip ou box-shadow simulado */
+  border-radius: 16px; 
+}
+
+.icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.card-servico h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.card-servico p {
+  color: var(--texto-cinza);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.badge-popular {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: var(--gradiente);
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+/* Seção Rapport */
+.rapport-section {
+  background-color: rgba(21, 28, 46, 0.5);
+  padding: 50px;
+  border-radius: 16px;
+  margin-bottom: 80px;
+}
+
+.rapport-content h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.rapport-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.rapport-content li {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: var(--texto-cinza);
+  display: flex;
+  align-items: baseline;
+}
+
+.rapport-content li::before {
+  content: "✓";
+  color: var(--cor-primaria);
+  font-weight: 900;
+  margin-right: 15px;
+}
+
+.rapport-content strong {
+  color: var(--texto-claro);
+}
+
+/* CTA Section */
+.cta-box {
+  background: linear-gradient(rgba(11, 15, 25, 0.8), rgba(11, 15, 25, 0.8)), var(--gradiente);
+  padding: 60px;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.cta-box h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.cta-box p {
+  font-size: 1.1rem;
+  color: var(--texto-cinza);
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.btn-decisao {
+  background: var(--gradiente);
+  color: #0b0f19;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 16px 40px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 255, 135, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-decisao:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 255, 135, 0.5);
+}
+
+.cta-box small {
+  display: block;
+  margin-top: 15px;
+  color: var(--texto-cinza);
+  font-size: 0.85rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .loja-header h1 { font-size: 2.2rem; }
+  .loja-container { padding: 40px 15px; }
+  .rapport-section { padding: 30px; }
+  .cta-box { padding: 40px 20px; }
+}

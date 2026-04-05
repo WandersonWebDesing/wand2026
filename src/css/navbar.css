@@ -1,0 +1,287 @@
+/* src/css/navbar.css */
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Deixa o cabeçalho fixo no topo */
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header {
+  background: linear-gradient(90deg, #0d6efd, #1e90ff);
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.header-logado {
+  background: #0a58ca;
+}
+
+.header-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Busca */
+.search-box {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 8px 12px 8px 36px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.search-box svg {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #0d6efd;
+}
+
+.dropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  overflow: hidden;
+  z-index: 999;
+}
+
+.dropdown div,
+.dropdown span {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dropdown div:hover,
+.dropdown span:hover {
+  background: #f1f1f1;
+}
+
+.dropdown.dark {
+  background: #0d6efd;
+  color: #fff;
+}
+
+.dropdown.dark p {
+  font-size: 0.85rem;
+  padding: 10px 15px;
+  opacity: 0.8;
+}
+
+/* Menu Desktop */
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.menu a:hover {
+  color: #ffeb3b;
+}
+
+/* Ações */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.actions .icon {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.actions .icon:hover {
+  transform: scale(1.2);
+}
+
+button {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all(0.2s) ease;
+}
+
+.btn-login {
+  background: #fff;
+  color: #0d6efd;
+}
+
+.btn-login:hover {
+  background: #e0e0e0;
+}
+
+.btn-register {
+  background: #ffeb3b;
+  color: #333;
+}
+
+.btn-register:hover {
+  background: #fdd835;
+}
+
+.btn-logout {
+  background: #dc3545;
+  color: #fff;
+}
+
+.btn-logout:hover {
+  background: #c82333;
+}
+
+/* MENU MOBILE ESTILO GMAIL (Side Drawer) */
+.menu-mobile {
+  position: fixed;
+  top: 0;
+  left: -280px; /* Escondido para fora da tela */
+  width: 280px;
+  height: 100vh;
+  background: #fff; /* Fundo branco estilo Gmail */
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); /* Animação suave do google */
+  z-index: 2000; /* Fica acima de tudo */
+  box-shadow: 2px 0px 10px rgba(0,0,0,0.1);
+}
+
+/* Quando ativo, ele desliza para a tela */
+.menu-mobile.active {
+  transform: translateX(280px);
+}
+
+.menu-mobile a {
+  color: #333; /* Texto escuro estilo Gmail */
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 12px 15px;
+  border-radius: 0 25px 25px 0; /* Arredondado igual a barra do Gmail */
+  margin-left: -20px;
+  width: calc(100% + 20px);
+  transition: all 0.2s ease;
+}
+
+.menu-mobile a:hover {
+  background-color: #f1f3f4;
+  color: #0d6efd;
+}
+
+.mobile-actions {
+  margin-top: auto; /* Joga os botões para o final do menu */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 20px;
+}
+
+/* Overlay para mobile (fundo escurecido) */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* Escurece o fundo */
+  z-index: 1500; /* Fica entre o header e o menu-mobile */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Ícone do menu mobile */
+.menu-mobile-icon {
+  display: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+@media screen and (max-width: 992px) {
+  .menu {
+    display: none;
+  }
+  .menu-mobile-icon {
+    display: block;
+  }
+  .search-box {
+    max-width: 200px; /* Diminui a barra de busca no mobile */
+  }
+}
+
+/* Botão WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  z-index: 1002;
+  animation: bounce 2s infinite;
+}
+
+.whatsapp-float img {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  60% { transform: translateY(-4px); }
+}

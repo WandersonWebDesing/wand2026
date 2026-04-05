@@ -1,0 +1,81 @@
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.input-group label {
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.input-group input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.btn-primary {
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+}
+
+.conta-benefits {
+  margin-top: 25px;
+  text-align: left;
+}
+
+.conta-benefits h3 {
+  font-size: 1rem;
+  color: #0a1f44;
+  margin-bottom: 10px;
+}
+
+.conta-benefits ul {
+  list-style: none;
+  padding: 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.conta-benefits li {
+  margin-bottom: 5px;
+}
+
+.conta-footer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

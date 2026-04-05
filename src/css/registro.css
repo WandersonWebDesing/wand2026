@@ -1,0 +1,96 @@
+/* 🔥 Fundo geral */
+.register-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  font-family: Arial, sans-serif;
+}
+
+/* 🔥 Card */
+.register-form {
+  background: #0f172a;
+  padding: 40px;
+  border-radius: 16px;
+  width: 350px;
+
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  animation: fadeIn 0.5s ease;
+}
+
+/* 🔥 Título */
+.register-form h2 {
+  text-align: center;
+  color: #38bdf8;
+}
+
+/* 🔥 Inputs */
+.register-form input,
+.register-form select {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+
+  background: #1e293b;
+  color: white;
+}
+
+/* 🔥 Hover inputs */
+.register-form input:focus {
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+/* 🔥 Botão código */
+.btn-codigo {
+  background: #22c55e;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-codigo:hover {
+  background: #16a34a;
+}
+
+/* 🔥 Botão submit */
+.btn-submit {
+  background: #38bdf8;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-submit:hover {
+  background: #0ea5e9;
+}
+
+/* 🔥 Mensagem */
+.mensagem {
+  text-align: center;
+  color: #facc15;
+}
+
+/* 🔥 Animação */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,147 @@
+/* RESET BÁSICO */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  box-sizing: border-box;
+}
+
+/* CONTÊINER PRINCIPAL */
+.faq-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  color: white;
+  text-align: center;
+  background: linear-gradient(to bottom, #1e3a8a, #3b82f6);
+  border-radius: 20px;
+}
+
+/* LOGO E HEADER */
+.faq-brand img {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.faq-brand h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.faq-brand p {
+  font-size: 1.1rem;
+  color: #d1d5db;
+}
+
+.faq-header h1 {
+  font-size: 2rem;
+  margin: 30px 0 10px;
+}
+
+.faq-header p {
+  font-size: 1.2rem;
+  color: #d1d5db;
+}
+
+/* LISTA DE FAQ */
+.faq-list {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 15px;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.faq-item.active {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 20px;
+  text-align: left;
+  font-size: 1.2rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.faq-question:hover {
+  color: #00ffcc;
+}
+
+.faq-answer {
+  padding: 20px;
+  color: #d1d5db;
+  font-size: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ÍCONE + / - */
+.faq-question .icon {
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.faq-item.active .icon {
+  transform: rotate(180deg);
+}
+
+/* BOTÃO CTA */
+.faq-cta {
+  margin-top: 50px;
+  background: rgba(0, 255, 204, 0.1);
+  padding: 40px 20px;
+  border-radius: 20px;
+}
+
+.faq-cta h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.faq-cta p {
+  margin-bottom: 20px;
+  color: #d1d5db;
+}
+
+.faq-cta button {
+  background: #00ffcc;
+  color: #000;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.faq-cta button:hover {
+  background: #00e6b8;
+}
+
+/* RESPONSIVO */
+@media screen and (max-width: 768px) {
+  .faq-container {
+    padding: 30px 15px;
+  }
+
+  .faq-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .faq-cta h3 {
+    font-size: 1.5rem;
+  }
+}
