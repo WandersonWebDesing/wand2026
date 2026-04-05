@@ -1,4 +1,5 @@
-
+import React, { useState } from 'react';
+import { Mail, Lock, ArrowRight, GitHub, Linkedin, Briefcase } from 'lucide-react';
 import '../css/contato.css';
 
 const Contato = () => {

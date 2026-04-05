@@ -1,5 +1,6 @@
 // Conta.jsx
-
+import React, { useState } from 'react';
+import { Mail, Lock, ArrowRight, GitHub, Linkedin, Briefcase } from 'lucide-react';
 import "../css/conta.css";
 
 export default function Conta() {

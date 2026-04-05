@@ -1,4 +1,5 @@
-
+import React, { useState } from 'react';
+import { Mail, Lock, ArrowRight, GitHub, Linkedin, Briefcase } from 'lucide-react';
 import "../css/home.css";
 import minhaFoto from "../assets/images/wandersonhome.png";
 
