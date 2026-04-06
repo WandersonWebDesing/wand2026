@@ -1,33 +1,52 @@
+// ===============================
+// 📦 IMPORTAÇÕES
+// ===============================
 
-// Importação do CSS
+// React
+import { useState } from "react";
+
+// CSS do botão
 import "../css/button.css";
 
-// Framer Motion para animações modernas
+// Framer Motion para animações
 import { motion } from "framer-motion";
 
-// Componente principal do botão
-const Button = ({
-  text = "Quero Crescer Agora", // Texto padrão persuasivo
-  apiUrl = "", // URL da API para envio de dados
-  payload = {}, // Dados enviados para API (lead, contato etc)
-  onClick, // Função extra opcional
+// ===============================
+// 🧾 TIPAGEM DAS PROPS (evita erro TS)
+// ===============================
+interface ButtonProps {
+  text?: string;
+  apiUrl?: string;
+  payload?: Record<string, unknown>;
+  onClick?: () => void;
+}
+
+// ===============================
+// 🎯 COMPONENTE BUTTON
+// ===============================
+const Button: React.FC<ButtonProps> = ({
+  text = "Quero Crescer Agora",
+  apiUrl = "",
+  payload = {},
+  onClick = () => {},
 }) => {
-  // Estado para controlar o loading (UX inteligente)
+  // ===============================
+  // 🔄 STATE DE LOADING
+  // ===============================
   const [loading, setLoading] = useState(false);
 
-  // Função principal ao clicar
+  // ===============================
+  // 🚀 FUNÇÃO DE CLICK
+  // ===============================
   const handleClick = async () => {
-    // Ativa loading
     setLoading(true);
 
     try {
-      // 🔥 RASTREAMENTO DE CLIQUE (Analytics)
       console.log("Clique rastreado:", {
         botao: text,
-        data: new Date(),
+        data: new Date().toISOString(),
       });
 
-      // 🔥 INTEGRAÇÃO COM API (ex: Supabase, backend próprio)
       if (apiUrl) {
         await fetch(apiUrl, {
           method: "POST",
@@ -38,38 +57,33 @@ const Button = ({
         });
       }
 
-      // Executa ação extra se existir
-      if (onClick) onClick();
-
+      onClick();
     } catch (error) {
       console.error("Erro ao enviar:", error);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1500);
     }
-
-    // Simula tempo de processamento estilo Stripe
-    setTimeout(() => {
-      setLoading(false);
-    }, 1500);
   };
 
+  // ===============================
+  // 🎨 RENDER
+  // ===============================
   return (
     <motion.button
       className="btn-wanderson"
       onClick={handleClick}
-      
-      // 🔥 Animação ao passar mouse
+      disabled={loading}
       whileHover={{ scale: 1.05 }}
-      
-      // 🔥 Animação ao clicar
       whileTap={{ scale: 0.95 }}
     >
-      {/* Se estiver carregando, mostra loader */}
-      {loading ? (
-        <span className="loader"></span>
-      ) : (
-        text
-      )}
+      {loading ? <span className="loader"></span> : text}
     </motion.button>
   );
 };
 
+// ===============================
+// 📤 EXPORTAÇÃO
+// ===============================
 export default Button;
