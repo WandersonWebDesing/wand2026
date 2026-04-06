@@ -109,3 +109,12 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+@media (max-width: 768px) {
+  .desktop {
+    display: none !important;
+  }
+
+  button {
+    display: block !important;
+  }
+}

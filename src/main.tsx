@@ -1,12 +1,15 @@
-// src/main.jsx
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
+const root = document.getElementById('root');
+
+if (!root) {
+  throw new Error("Elemento #root não encontrado");
+}
+
+ReactDOM.createRoot(root).render(
+  <React.StrictMode>
     <App />
-  </StrictMode>
-)
+  </React.StrictMode>
+);
