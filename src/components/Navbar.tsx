@@ -223,13 +223,15 @@ const styles: Record<string, CSSProperties> = {
     cursor: "pointer" // Adicionado para indicar clique
   },
   searchBox: {
-    position: "relative",
-    display: "flex",
-    alignItems: "center",
-    background: "#fff",
-    padding: "5px 10px",
-    borderRadius: "20px"
-  },
+  position: "relative",
+  display: "flex",
+  alignItems: "center",
+  background: "#fff",
+  padding: "5px 10px",
+  borderRadius: "20px",
+  maxWidth: "200px", // ✅ limita tamanho no desktop
+  width: "100%" // ✅ permite ajuste responsivo
+},
   input: {
     border: "none",
     outline: "none",

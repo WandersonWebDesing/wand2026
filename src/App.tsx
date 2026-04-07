@@ -4,7 +4,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // ===============================
-// 📄 PÁGINAS (NOME DOS ARQUIVOS DEVEM SER IGUAIS)
+// 📄 PÁGINAS
 // ===============================
 import Home from "./pages/home";
 import Solucoes from "./pages/solucoes";
@@ -14,11 +14,10 @@ import Contato from "./pages/contato";
 import Registro from "./pages/registro";
 
 // ===============================
-// 🧩 COMPONENTES
+// 🧩 COMPONENTES (PADRÃO CORRETO)
 // ===============================
-import Header from "./components/navbar";
-//import Button from "./components/Button";
-import Footer from "./components/footer";
+import Header from "./components/Navbar";
+import Footer from "./components/Footer";
 
 // ===============================
 // 🚀 COMPONENTE PRINCIPAL
@@ -26,13 +25,10 @@ import Footer from "./components/footer";
 function App() {
   return (
     <BrowserRouter>
-      {/* 🔝 Cabeçalho fixo */}
       <Header />
 
-      {/* 📄 Conteúdo principal */}
       <main style={{ marginTop: "65px", minHeight: "80vh" }}>
         <Routes>
-          {/* 🌐 Rotas principais */}
           <Route path="/" element={<Home />} />
           <Route path="/solucoes" element={<Solucoes />} />
           <Route path="/portfolio" element={<Portfolio />} />
@@ -40,10 +36,6 @@ function App() {
           <Route path="/contato" element={<Contato />} />
           <Route path="/registro" element={<Registro />} />
 
-          {/* 🔘 Página de teste do botão 
-          <Route path="/button" element={<Button />} />
-            */}
-          {/* ❌ Rota 404 */}
           <Route
             path="*"
             element={
@@ -56,7 +48,6 @@ function App() {
         </Routes>
       </main>
 
-      {/* 🔻 Rodapé */}
       <Footer />
     </BrowserRouter>
   );
