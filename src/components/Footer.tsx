@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react";
 import type { FormEvent } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion"; // Removido AnimatePresence que não estava em uso
 import "../css/footer.css";
 
-// Importações conforme sua estrutura
-import bannerImg from "../assets/images/footer.png"; // A imagem das marcas/prédios
-import logoGira from "../assets/images/comentalogo.png";
-import wandersonImg from "../assets/images/fotowand.png"; // Sua foto com terno
+// Importações
+import bannerImg from "../assets/images/footer.png"; 
+// Removida a linha do logoGira para evitar erro de variável não utilizada
+import wandersonImg from "../assets/images/fotowand.png"; 
 
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [count, setCount] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
 
   // Efeito de contador animado para "Projetos Entregues"
   useEffect(() => {
@@ -56,9 +55,6 @@ const Footer = () => {
             <p className="brand-tagline">
               Arquitetura de marcas que <strong>conectam sucesso</strong> e escalam negócios.
             </p>
-            <div className="social-mini-icons">
-               {/* Espaço para ícones como LinkedIn/GitHub */}
-            </div>
           </div>
 
           {/* Seção de Autoridade/Métricas */}

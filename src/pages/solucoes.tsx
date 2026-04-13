@@ -1,20 +1,18 @@
-// =========================
-// src/pages/Solucoes.tsx
-// =========================
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  Camera, Video, Star, ShoppingCart, MessageSquare, 
+  Camera, Video, Star, MessageSquare, 
   Globe, Layout, HeartPulse, GraduationCap, Briefcase 
 } from "lucide-react";
 
 import "../css/solucoes.css";
 import logo from "../assets/images/logowanderson.png";
 
+// Interface corrigida para evitar erro de JSX namespace
 interface Service {
   title: string;
   desc: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
   category: string;
 }
 
@@ -38,7 +36,6 @@ export default function Solucoes() {
 
   return (
     <div className="solucoes-wrapper">
-      {/* OVERLAY DE TEXTURA OLD SCHOOL */}
       <div className="grain-overlay"></div>
 
       <header className="hero-section">
