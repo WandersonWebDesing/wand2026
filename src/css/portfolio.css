@@ -1,108 +1,169 @@
-.portfolio-container {
-  font-family: Arial, sans-serif;
-  background: #0a0f2c;
-  color: white;
-  padding: 40px 20px;
+/* 🎨 Variáveis de Cores Jovens e Encantadoras */
+:root {
+  --bg-dark: #0a0b10;
+  --accent-neon: #00f2ff;
+  --purple-vibe: #7000ff;
+  --pink-sweet: #ff007a;
+  --text-main: #e0e0e0;
+  --glass: rgba(255, 255, 255, 0.05);
 }
 
-/* HERO */
-.portfolio-hero {
+.portfolio-factory {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ⚡ Efeito de Scanline (Nostalgia) */
+.scanline {
+  width: 100%;
+  height: 2px;
+  background: rgba(0, 242, 255, 0.1);
+  position: fixed;
+  z-index: 10;
+  pointer-events: none;
+  animation: scan 4s linear infinite;
+}
+
+@keyframes scan {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+/* 🎯 Hero Section */
+.hero-section {
+  padding: 120px 20px;
   text-align: center;
-  margin-bottom: 60px;
+  background: radial-gradient(circle at top center, #1a1b2e 0%, var(--bg-dark) 70%);
 }
 
-.portfolio-hero h1 {
-  font-size: 2.8rem;
-}
-
-.portfolio-hero span {
-  color: #00d4ff;
-}
-
-.portfolio-hero p {
-  margin-top: 15px;
-  color: #ccc;
-}
-
-/* CASES */
-.portfolio-cases {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-}
-
-.portfolio-card {
-  background: #111a3a;
-  padding: 25px;
-  border-radius: 15px;
-  transition: 0.3s;
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
-}
-
-.portfolio-card h2 {
-  color: #00d4ff;
-}
-
-.portfolio-card p {
-  margin: 10px 0;
-}
-
-.result {
-  font-weight: bold;
-  color: #00ff88;
-  margin: 10px 0;
-}
-
-.tech {
+.badge {
+  color: var(--accent-neon);
   font-size: 0.8rem;
-  color: #aaa;
+  letter-spacing: 3px;
+  border: 1px solid var(--accent-neon);
+  padding: 5px 15px;
+  border-radius: 50px;
+  text-transform: uppercase;
 }
 
-.portfolio-card button {
-  margin-top: 15px;
-  padding: 10px;
-  border: none;
-  background: #00d4ff;
-  color: black;
-  border-radius: 8px;
-  cursor: pointer;
+h1 {
+  font-size: 4rem;
+  margin: 20px 0;
+  font-weight: 900;
+  background: linear-gradient(to right, #fff, var(--accent-neon));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* PROVA SOCIAL */
-.portfolio-proof {
-  margin-top: 80px;
-  text-align: center;
+.glitch {
+  text-shadow: 2px 2px var(--pink-sweet), -2px -2px var(--purple-vibe);
 }
 
-.numbers {
+/* 📊 Grid de Projetos Arquitetônico */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 50px 5%;
+}
+
+.project-card {
+  background: var(--glass);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
   display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
 }
 
-.numbers h3 {
-  color: #00ff88;
-  font-size: 2rem;
+.project-card:hover {
+  border-color: var(--accent-neon);
+  box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
 }
 
-/* CTA */
-.portfolio-cta {
-  margin-top: 80px;
-  text-align: center;
+.cat-tag {
+  color: var(--pink-sweet);
+  font-weight: bold;
+  font-size: 0.7rem;
+  text-transform: uppercase;
 }
 
-.portfolio-cta button {
-  margin-top: 20px;
-  padding: 15px 25px;
-  background: #00ff88;
-  border: none;
+.framework-tag {
+  float: right;
+  background: var(--purple-vibe);
+  font-size: 0.6rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.card-result {
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(0, 242, 255, 0.05);
   border-radius: 10px;
+  border-left: 4px solid var(--accent-neon);
+}
+
+.card-result span {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+/* 🚀 Botões e CTA */
+.btn-primary {
+  background: linear-gradient(45deg, var(--purple-vibe), var(--pink-sweet));
+  border: none;
+  color: white;
+  padding: 18px 40px;
+  border-radius: 12px;
   font-weight: bold;
   cursor: pointer;
+  box-shadow: 0 10px 20px rgba(112, 0, 255, 0.3);
+  transition: 0.3s;
 }
 
-/* LOADING */
-.loading {
-  text-align: center;
+.btn-mini {
+  background: transparent;
+  border: 1px solid var(--accent-neon);
+  color: var(--accent-neon);
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.btn-mini:hover {
+  background: var(--accent-neon);
+  color: var(--bg-dark);
+}
+
+/* 📈 Barra de Metodologia */
+.methodology-bar {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px;
+  background: rgba(0,0,0,0.5);
+  border-top: 1px solid var(--glass);
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.method-item {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.method-item strong {
+  color: var(--accent-neon);
+  display: block;
+  font-size: 1.1rem;
 }

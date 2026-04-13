@@ -19,6 +19,8 @@ import Registro from "./pages/registro";
 import Header from "./components/Navbar";
 import Footer from "./components/Footer";
 
+//import Button from "./components/button";
+
 // ===============================
 // 🚀 COMPONENTE PRINCIPAL
 // ===============================
@@ -35,6 +37,7 @@ function App() {
           <Route path="/depoimentos" element={<Depoimentos />} />
           <Route path="/contato" element={<Contato />} />
           <Route path="/registro" element={<Registro />} />
+        {/*  <Route path="/button" element={<Button />} /> */}
 
           <Route
             path="*"

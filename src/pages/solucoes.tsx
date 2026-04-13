@@ -1,171 +1,132 @@
 // =========================
 // src/pages/Solucoes.tsx
 // =========================
-
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { 
+  Camera, Video, Star, ShoppingCart, MessageSquare, 
+  Globe, Layout, HeartPulse, GraduationCap, Briefcase 
+} from "lucide-react";
 
-// ESTILOS E ASSETS
 import "../css/solucoes.css";
 import logo from "../assets/images/logowanderson.png";
 
-// Interface para organizar os dados do FAQ (Boa prática em TS)
-interface FAQItem {
-  pergunta: string;
-  resposta: string;
+interface Service {
+  title: string;
+  desc: string;
+  icon: JSX.Element;
+  category: string;
 }
 
 export default function Solucoes() {
-  // Estado tipado: pode ser número (index) ou null (fechado)
   const [ativo, setAtivo] = useState<number | null>(null);
 
-  // Função toggle corrigida
-  const toggle = (index: number) => {
-    // Se clicar no que já está aberto, ele fecha (null). Se não, abre o novo.
-    setAtivo(ativo === index ? null : index);
-  };
+  const services: Service[] = [
+    { category: "Visual", title: "Fotografia Premium", desc: "Cobertura de eventos e ensaios que capturam a essência da marca.", icon: <Camera /> },
+    { category: "Visual", title: "Produção de Vídeo", desc: "Cinematografia para festas e conteúdo publicitário de alto impacto.", icon: <Video /> },
+    { category: "Digital", title: "Web Design & E-commerce", desc: "Lojas virtuais e sites institucionais com foco em UX/UI Retrô-Moderno.", icon: <Globe /> },
+    { category: "Automação", title: "Bots de WhatsApp", desc: "Fluxos inteligentes para clínicas, escolas e vendas automáticas.", icon: <MessageSquare /> },
+    { category: "Estratégia", title: "Menu Digital", desc: "Soluções interativas para gastronomia e eventos.", icon: <Layout /> },
+    { category: "Estratégia", title: "Produtos Digitais", desc: "Estruturação de infoprodutos e áreas de membros profissionais.", icon: <Star /> },
+  ];
 
-  const faqData: FAQItem[] = [
-    {
-      pergunta: "Seu negócio aparece no Google?",
-      resposta: "Se o cliente não te encontra, ele compra do concorrente. Posicionamos sua empresa para ser encontrada todos os dias.",
-    },
-    {
-      pergunta: "Você recebe clientes todos os dias?",
-      resposta: "Criamos estratégias digitais que geram fluxo constante de clientes qualificados.",
-    },
-    {
-      pergunta: "Sua marca transmite profissionalismo?",
-      resposta: "Design, presença digital e autoridade fazem toda a diferença na decisão de compra.",
-    },
-    {
-      pergunta: "Você domina seu mercado local?",
-      resposta: "Trabalhamos posicionamento estratégico para você se tornar referência na sua região.",
-    },
+  const niches = [
+    { name: "Clínicas", icon: <HeartPulse /> },
+    { name: "Escolas", icon: <GraduationCap /> },
+    { name: "Empresários", icon: <Briefcase /> },
   ];
 
   return (
-    <div className="solucoes-container">
-      {/* HERO */}
-      <section className="hero">
-        <motion.h1
-          initial={{ opacity: 0, y: -50 }}
+    <div className="solucoes-wrapper">
+      {/* OVERLAY DE TEXTURA OLD SCHOOL */}
+      <div className="grain-overlay"></div>
+
+      <header className="hero-section">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          className="hero-content"
         >
-          Transforme sua presença digital em uma máquina de vendas
-        </motion.h1>
-
-        <p>
-          Sites, sistemas e automações que atraem clientes, geram autoridade
-          e aumentam seu faturamento todos os dias.
-        </p>
-
-        <a
-          href="https://wa.me/5561999788904"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="cta-btn"
-        >
-          Falar no WhatsApp agora
-        </a>
-      </section>
-
-      {/* CONTADOR */}
-      <section className="contador">
-        <motion.div
-          className="box"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <h2>+100</h2>
-          <p>Clientes atendidos</p>
+          <span className="badge">ESTÉTICA CLÁSSICA • RESULTADO MODERNO</span>
+          <h1>Arquitetura Digital que <span>fecha negócios.</span></h1>
+          <p>Unimos a autoridade do design clássico com a agilidade da automação moderna para escalar sua empresa.</p>
+          <div className="hero-btns">
+            <a href="https://wa.me/5561999788904" className="cta-main">Iniciar Projeto</a>
+            <a href="#servicos" className="cta-secondary">Ver Soluções</a>
+          </div>
         </motion.div>
+      </header>
 
-        <motion.div
-          className="box"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <h2>+300%</h2>
-          <p>Aumento médio em conversão</p>
-        </motion.div>
-
-        <motion.div
-          className="box"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <h2>24h</h2>
-          <p>Suporte e automação ativa</p>
-        </motion.div>
-      </section>
-
-      {/* SOLUÇÕES */}
-      <section className="solucoes-grid">
-        <motion.div whileHover={{ scale: 1.05 }} className="card">
-          <h3>Criação de Sites Profissionais</h3>
-          <p>
-            Sites rápidos, modernos e persuasivos que convertem visitantes em clientes.
-          </p>
-        </motion.div>
-      </section>
-
-      {/* FAQ */}
-      <section className="faq-container">
-        <div className="faq-brand">
-          <img src={logo} alt="WandersonWeb Logo" />
-          <h2>WandersonWeb</h2>
-          <p>
-            Soluções digitais estratégicas para empresas que desejam crescer,
-            se destacar e dominar seu mercado.
-          </p>
+      <section className="niche-bar">
+        <p>Especialista em:</p>
+        <div className="niche-list">
+          {niches.map((n, i) => (
+            <div key={i} className="niche-item">{n.icon} {n.name}</div>
+          ))}
         </div>
+      </section>
 
-        <div className="faq-header">
-          <h1>Perguntas estratégicas antes de escalar seu negócio</h1>
-          <p>Empresas que crescem fazem as perguntas certas.</p>
+      <section id="servicos" className="grid-services">
+        <div className="section-header">
+          <h2>Soluções Criativas</h2>
+          <div className="line"></div>
         </div>
-
-        <div className="faq-list">
-          {faqData.map((item, index) => (
-            <div
-              key={index}
-              className={`faq-item ${ativo === index ? "active" : ""}`}
+        <div className="cards-container">
+          {services.map((s, i) => (
+            <motion.div 
+              whileHover={{ y: -10 }}
+              key={i} 
+              className="service-card"
             >
-              <button
-                className="faq-question"
-                onClick={() => toggle(index)}
-              >
-                <span>{item.pergunta}</span>
-                <span className="icon">{ativo === index ? "−" : "+"}</span>
-              </button>
+              <div className="card-icon">{s.icon}</div>
+              <span className="card-cat">{s.category}</span>
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
-              {/* Sugestão: adicione uma animação simples aqui se desejar */}
-              {ativo === index && (
-                <div className="faq-answer">
-                  <p>{item.resposta}</p>
-                </div>
-              )}
+      <section className="faq-modern-vintage">
+        <div className="faq-sidebar">
+          <img src={logo} alt="Logo" className="faq-logo" />
+          <h3>Perguntas Estratégicas</h3>
+          <p>Se você busca escala, precisa destas respostas.</p>
+        </div>
+
+        <div className="faq-accordion">
+          {[
+            { q: "Seu negócio é achado no Google?", a: "Estar no topo não é sorte, é engenharia. Colocamos você onde o cliente procura." },
+            { q: "Sua marca passa confiança?", a: "Design 'Old School' traz autoridade; UX moderna traz facilidade. O equilíbrio perfeito para vender." },
+            { q: "Automação substitui o humano?", a: "Não, ela liberta o humano para fechar contratos enquanto o Bot qualifica o lead." }
+          ].map((item, i) => (
+            <div key={i} className={`faq-box ${ativo === i ? "open" : ""}`}>
+              <button onClick={() => setAtivo(ativo === i ? null : i)}>
+                {item.q} <span>{ativo === i ? "−" : "+"}</span>
+              </button>
+              <AnimatePresence>
+                {ativo === i && (
+                  <motion.div 
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    className="faq-content"
+                  >
+                    <p>{item.a}</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>
-
-        <div className="faq-cta">
-          <h3>Pronto para crescer no digital?</h3>
-          <p>Fale agora e descubra como podemos impulsionar seu negócio.</p>
-          <button
-            onClick={() =>
-              window.open("https://wa.me/5561999788904", "_blank")
-            }
-          >
-            Falar no WhatsApp
-          </button>
-        </div>
       </section>
+
+      <footer className="footer-cta">
+        <h2>Pronto para o próximo nível?</h2>
+        <button onClick={() => window.open("https://wa.me/5561999788904")}>
+          SOLICITAR BENCHMARKING GRATUITO
+        </button>
+      </footer>
     </div>
   );
 }

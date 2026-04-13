@@ -1,24 +1,19 @@
 import { useState, useEffect } from "react";
 import type { FormEvent } from "react";
-
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import "../css/footer.css";
 
-import imagem1 from "../assets/images/footer.png";
-import imagem2 from "../assets/images/comentalogo.png";
-import heroImage from "../assets/images/fotowand.png";
+// Importações conforme sua estrutura
+import bannerImg from "../assets/images/footer.png"; // A imagem das marcas/prédios
+import logoGira from "../assets/images/comentalogo.png";
+import wandersonImg from "../assets/images/fotowand.png"; // Sua foto com terno
 
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [count, setCount] = useState(0);
-  const [darkMode, setDarkMode] = useState(false);
-  const [clicado, setClicado] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
-  useEffect(() => {
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    setDarkMode(prefersDark);
-  }, []);
-
+  // Efeito de contador animado para "Projetos Entregues"
   useEffect(() => {
     let start = 0;
     const end = 127;
@@ -27,90 +22,87 @@ const Footer = () => {
 
     const timer = setInterval(() => {
       start += increment;
-
       if (start >= end) {
         start = end;
         clearInterval(timer);
       }
-
       setCount(Math.floor(start));
     }, 16);
-
     return () => clearInterval(timer);
   }, []);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    try {
-      await fetch("/api/leads", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      alert("🚀 Lead captado com sucesso!");
-      setEmail("");
-    } catch (error) {
-      console.error(error);
-      alert("Erro ao enviar. Tente novamente.");
-    }
+    alert("🚀 Conexão estabelecida! Em breve entrarei em contato.");
+    setEmail("");
   };
 
   return (
-    <footer className={darkMode ? "footer dark" : "footer"}>
-      <motion.div
-        className="footer-container"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="footer-left">
-          <img src={heroImage} alt="WandersonWeb" className="footer-hero" />
-          <h2>🚀 WandersonWeb</h2>
-          <p>
-            Transformando ideias em experiências inesquecíveis.
-          </p>
+    <footer className="main-footer">
+      <div className="footer-glass-overlay">
+        <motion.div 
+          className="footer-content"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          {/* Seção Perfil/Branding */}
+          <div className="footer-section profile-box">
+            <div className="avatar-wrapper">
+              <img src={wandersonImg} alt="Wanderson" className="profile-img" />
+              <div className="status-indicator"></div>
+            </div>
+            <h2 className="brand-name">Wanderson<span>Web</span></h2>
+            <p className="brand-tagline">
+              Arquitetura de marcas que <strong>conectam sucesso</strong> e escalam negócios.
+            </p>
+            <div className="social-mini-icons">
+               {/* Espaço para ícones como LinkedIn/GitHub */}
+            </div>
+          </div>
 
-          <div
-            className="imagem-container"
-            onClick={() => setClicado((prev) => !prev)}
-          >
-            <img
-              src={clicado ? imagem2 : imagem1}
-              alt="Imagem giratória"
-              className={`imagem-gira ${clicado ? "rotate" : ""}`}
-            />
+          {/* Seção de Autoridade/Métricas */}
+          <div className="footer-section metrics-box">
+            <span className="section-label">Nossa Entrega</span>
+            <div className="counter-container">
+              <h3 className="counter-number">+{count}</h3>
+              <p>Projetos de Alto Impacto</p>
+            </div>
+            <div className="brand-shimmer-card">
+               <img src={bannerImg} alt="Ecossistema WandersonWeb" className="ecosystem-img" />
+            </div>
+          </div>
+
+          {/* Seção CTA/Newsletter */}
+          <div className="footer-section cta-box">
+            <span className="section-label">Vamos decolar?</span>
+            <h3>Transforme sua ideia em <strong>resultado real</strong>.</h3>
+            <form onSubmit={handleSubmit} className="footer-form">
+              <div className="input-group">
+                <input 
+                  type="email" 
+                  placeholder="Seu melhor e-mail"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required 
+                />
+                <button type="submit" className="btn-glow">
+                  Expandir Negócio 🚀
+                </button>
+              </div>
+            </form>
+          </div>
+        </motion.div>
+
+        <div className="footer-bottom-bar">
+          <p>© 2026 WandersonWeb — UI/UX Excellence</p>
+          <div className="footer-legal">
+            <a href="#">Privacidade</a>
+            <span className="separator">|</span>
+            <a href="#">Termos</a>
           </div>
         </div>
-
-        <div className="footer-center">
-          <h3>📊 Resultados Reais</h3>
-          <motion.div className="counter">
-            +{count} projetos entregues
-          </motion.div>
-        </div>
-
-        <div className="footer-right">
-          <h3>💡 Receba Estratégias</h3>
-
-          <form onSubmit={handleSubmit}>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <button type="submit">Quero crescer 🚀</button>
-          </form>
-        </div>
-      </motion.div>
-
-      <motion.div className="footer-bottom">
-        <p>© 2026 WandersonWeb</p>
-      </motion.div>
+      </div>
     </footer>
   );
 };
