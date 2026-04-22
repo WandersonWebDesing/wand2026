@@ -1,18 +1,17 @@
 import { useState, useEffect } from "react";
-import type { FormEvent } from "react";
-import { motion } from "framer-motion"; // Removido AnimatePresence que não estava em uso
+import { motion } from "framer-motion";
 import "../css/footer.css";
 
-// Importações
+// Imagens
 import bannerImg from "../assets/images/footer.png"; 
-// Removida a linha do logoGira para evitar erro de variável não utilizada
 import wandersonImg from "../assets/images/fotowand.png"; 
 
 const Footer = () => {
+  const [name, setName] = useState(""); // ✅ corrigido
   const [email, setEmail] = useState("");
   const [count, setCount] = useState(0);
 
-  // Efeito de contador animado para "Projetos Entregues"
+  // Contador animado
   useEffect(() => {
     let start = 0;
     const end = 127;
@@ -27,12 +26,17 @@ const Footer = () => {
       }
       setCount(Math.floor(start));
     }, 16);
+
     return () => clearInterval(timer);
   }, []);
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  // Submit
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     alert("🚀 Conexão estabelecida! Em breve entrarei em contato.");
+
+    setName("");
     setEmail("");
   };
 
@@ -45,7 +49,7 @@ const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          {/* Seção Perfil/Branding */}
+          {/* Perfil */}
           <div className="footer-section profile-box">
             <div className="avatar-wrapper">
               <img src={wandersonImg} alt="Wanderson" className="profile-img" />
@@ -57,7 +61,7 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Seção de Autoridade/Métricas */}
+          {/* Métricas */}
           <div className="footer-section metrics-box">
             <span className="section-label">Nossa Entrega</span>
             <div className="counter-container">
@@ -65,16 +69,25 @@ const Footer = () => {
               <p>Projetos de Alto Impacto</p>
             </div>
             <div className="brand-shimmer-card">
-               <img src={bannerImg} alt="Ecossistema WandersonWeb" className="ecosystem-img" />
+              <img src={bannerImg} alt="Ecossistema WandersonWeb" className="ecosystem-img" />
             </div>
           </div>
 
-          {/* Seção CTA/Newsletter */}
+          {/* Formulário */}
           <div className="footer-section cta-box">
             <span className="section-label">Vamos decolar?</span>
             <h3>Transforme sua ideia em <strong>resultado real</strong>.</h3>
+
             <form onSubmit={handleSubmit} className="footer-form">
               <div className="input-group">
+                <input 
+                  type="text"
+                  placeholder="Seu nome"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+
                 <input 
                   type="email" 
                   placeholder="Seu melhor e-mail"
@@ -82,14 +95,17 @@ const Footer = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   required 
                 />
+
                 <button type="submit" className="btn-glow">
                   Expandir Negócio 🚀
                 </button>
               </div>
             </form>
           </div>
+
         </motion.div>
 
+        {/* Rodapé */}
         <div className="footer-bottom-bar">
           <p>© 2026 WandersonWeb — UI/UX Excellence</p>
           <div className="footer-legal">
